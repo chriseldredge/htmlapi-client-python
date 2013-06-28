@@ -342,6 +342,7 @@ class MicrodataDocument:
 
 def enter(url):
     print "GET", url, "...",
-    f = urllib2.urlopen(url)
+    req = urllib2.Request(url, None, {'Accept':'application/xml+xhtml, text/html, application/xml, text/xml'})
+    f = urllib2.urlopen(req)
     print "OK"
     return MicrodataDocument(f, url)
